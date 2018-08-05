@@ -17,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 @Service("recordService")
 public class RecordServiceImpl implements RecordService {
 
-    private static final String url = "http://192.168.99.100:8088/records";
+    private static final String url = "http://192.168.99.100:8080/records";
 
 
     private static List<Record> records;
@@ -27,7 +27,7 @@ public class RecordServiceImpl implements RecordService {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Record[]> responseEntity;
         if (email != null) {
-            responseEntity = restTemplate.getForEntity(url + "?email=" + email + "&length=10", Record[].class);
+            responseEntity = restTemplate.getForEntity(url + "?email=" + email, Record[].class);
         } else {
             responseEntity = restTemplate.getForEntity(url + "?offset=0&length=10", Record[].class);
         }

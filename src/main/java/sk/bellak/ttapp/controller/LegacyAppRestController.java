@@ -2,16 +2,12 @@ package sk.bellak.ttapp.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.*;
 import sk.bellak.ttapp.model.Record;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import sk.bellak.ttapp.service.RecordService;
@@ -24,7 +20,7 @@ public class LegacyAppRestController {
 
 
     //-------------------Create a Record--------------------------------------------------------
-
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/record/", method = RequestMethod.POST)
     public ResponseEntity<Void> createRecord(@RequestBody Record record, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating Record " + record.getEmail());
@@ -35,7 +31,7 @@ public class LegacyAppRestController {
     }
 
     //-------------------Find records by email--------------------------------------------------------
-
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/record/{email}", method = RequestMethod.GET)
     public ResponseEntity<List<Record>> getRecord(@PathVariable("email") String email) {
         System.out.println("Fetching Record with email " + email);
