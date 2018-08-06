@@ -32,7 +32,7 @@ public class LegacyAppRestController {
 
     //-------------------Find records by email--------------------------------------------------------
     @CrossOrigin(origins = "*")
-    @RequestMapping(value = "/record/{email}", method = RequestMethod.GET)
+    @RequestMapping(value = "/record/{email:.+}", method = RequestMethod.GET)
     public ResponseEntity<List<Record>> getRecord(@PathVariable("email") String email) {
         System.out.println("Fetching Record with email " + email);
         List<Record> records = recordService.findByEmail(email);
