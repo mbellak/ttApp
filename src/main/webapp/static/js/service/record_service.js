@@ -2,7 +2,7 @@
 
 angular.module('myApp').factory('RecordService', ['$http', '$q', function ($http, $q) {
 
-    var REST_SERVICE_URI_RECORD = 'http://localhost:8080/record/';
+    var REST_SERVICE_URI_RECORD = 'http://192.168.99.100:5000/record/';
 
     var factory = {
         createRecord: createRecord,
